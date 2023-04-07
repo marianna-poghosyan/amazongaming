@@ -40,35 +40,6 @@
                     <span class="a">Turkce</span>
                 </nav>
             </div>
-            <!-- <div class="header--right-content--container" id="prof" onclick="openProfile()">
-                <img src="assets/images/profile.png" id="profIcon" class="header-icon--right">
-                <p id="profText">Nickname</p>
-                <img src="assets/images/arrow.png" id="profArrow" class="header-arrow--right profile">
-            </div>
-            <div class="p-o" id="p-o">
-               <nav class="p-o--container">
-                  <div class="p-o--profile"> 
-                     <div class="p-o--img"> <img src="assets/images/profile.png"> </div>
-                     <span>Nickname</span>
-                  </div>
-                  <div class="p-o--bar"></div>
-                  <div class="p-o--content">
-                     <span>Sobre o prime gaming</span>
-                     <span>Jogos e itens</span>
-                     <span>Suporte</span>
-                  </div>
-                  <div class="p-o--bar dois"></div>
-                  <div class="p-o--content">
-                     <span>Gerenciar contas Twitch</span>
-                     <span>Configurações de notificação</span>
-                     <span>Idioma</span>
-                  </div>
-                  <div class="p-o--bar dois"></div>
-                  <div class="p-o--content">
-                     <span>Sair</span>
-                  </div>
-               </nav>
-            </div> -->
         </div>
     </header>
 
@@ -81,7 +52,110 @@
                   votre adresse e-mail La Plateforme.</span> 
             <span>Vous pouvez bénéficier de réductions sur les abonnements, les jeux et plus encore. Rejoignez notre communauté de joueurs Prime Gaming dès 
                maintenant et bénéficiez d'offres exclusives pour les étudiants de La Plateforme.</span>
-            <button class="banner-left--button" onclick="window.location.href='/gmail.html'">Se connecter</button>
+
+            <!-- POPUP SIGNIN START -->
+            <style>
+                /* Style for the semi-transparent overlay */
+                .overlay {
+                  position: fixed;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  background-color: rgba(0,0,0,0.5); /* semi-transparent black */
+                  z-index: 1; /* Display the overlay above other elements */
+                  display: none; /* Hide the overlay by default */
+                }
+                
+                /* Style for the modal popup */
+                .popup {
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                  background-color: #fff;
+                  padding: 30px;
+                  border-radius: 5px;
+                  box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+                  z-index: 2; 
+                  display: none; 
+                } 
+
+                .popup h2, .popup label {
+                    color: #0B0418;
+                }
+                .popup h2{
+                    text-align: center;
+                    font-size: 1.5rem;
+                    font-weight: 500;
+                }
+                .popup img{
+                    max-width: 260px !important;
+                    margin-left: 5%;
+                    height: auto;
+                    padding: 10px 0;
+                }
+                #username, #password{
+                    margin-bottom: 15px;
+                    border-radius: 7px;
+                    color: #0B0418;
+                    font-size: 1.5rem;
+                    background: rgba(11,4,24,0.1);
+                    border: 1px solid #0B0418;
+                }
+                
+                /* Style for the close button */
+                .close-button {
+                  position: absolute;
+                  top: 10px;
+                  right: 10px;
+                  font-size: 26px !important;
+                  font-weight: bold;
+                  color: #0B0418;
+                  cursor: pointer;
+                }
+                .signin{
+                    padding: 5px;
+                    margin: 15px 0 0 0;
+                    margin-left: 23%;
+                }
+              </style>
+              
+              <button class="banner-left--button" onclick="showLoginPopup()">Se connecter</button>
+              
+              <div class="overlay" id="overlay">
+                <div class="popup" id="login-popup">
+                  <span class="close-button" onclick="hideLoginPopup()">&times;</span>
+                  <img src="assets/images/logo2xblack.png" alt="Prime Gaming avec La Plateforme">
+                  <h2>Connexion</h2>
+                  <form>
+                    <label for="username">Adresse e-mail:</label>
+                    <input type="text" id="username" name="username"><br>
+              
+                    <label for="password">Mot de passe:</label>
+                    <input type="password" id="password" name="password"><br>
+              
+                    <input class="banner-left--button signin" type="button" value="Sign in" onclick="signIn()">
+                  </form>
+                </div>
+              </div>
+              
+              <script>
+              function showLoginPopup() {
+                document.getElementById("overlay").style.display = "block";
+                document.getElementById("login-popup").style.display = "block";
+              }
+              
+              function hideLoginPopup() {
+                document.getElementById("overlay").style.display = "none";
+                document.getElementById("login-popup").style.display = "none";
+              }
+              
+              function signIn() {
+                // Code to handle the sign in button click
+              }
+              </script>
+            <!-- POPUP SIGNIN END -->
         </div>
     </main>
 
@@ -96,13 +170,15 @@
            <h1>Profitez d'Amazon Prime Gaming gratuitement avec La Plateforme.</h1>                  
            <p>Recevez des jeux gratuits chaque mois avec Prime Gaming. Élargissez votre bibliothèque de nouveaux titres passionnants et de franchises intemporelles. Vous trouverez toujours un jeu génial prêt à jouer.</p>
            <img src="assets/images/logo2x.png" alt="Prime Gaming avec La Plateforme">
-           <button class="banner-left--button" onclick="window.location.href='/gmail.html'">Obtenir Amazon Prime gratuit avec La Plateforme</button>
+
+           <button class="banner-left--button"  onclick="backTop(); showLoginPopup()">Obtenir Amazon Prime gratuit avec La Plateforme</button>
+
+           <!-- <button class="banner-left--button" onclick="window.location.href='/gmail.html'">Obtenir Amazon Prime gratuit avec La Plateforme</button> -->
        </div>
    </div>
   </section>
 
     <footer>
-
         <div class="footer-topbutton" onclick="backTop()">Retour en haut</div>
 
         <div class="footer-container">
